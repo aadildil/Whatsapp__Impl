@@ -81,7 +81,7 @@ public class WhatsappRepository {
         List<User> users=groupUserMap.get(user);
         for(User user1:users)
         {
-            if(user1.equals(user))
+            if((user1.getMobile()).equals(user.getMobile()))
                 return true;
         }
         return false;
