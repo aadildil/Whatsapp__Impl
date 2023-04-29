@@ -12,4 +12,16 @@ public class Message {
         this.content = content;
         this.timestamp = LocalDate.now();
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public LocalDate getTimestamp() {
+        return timestamp;
+    }
 }

@@ -14,8 +14,8 @@ public class WhatsappRepository {
     private HashMap<Message, User> senderMap;
     private HashMap<Group, User> adminMap;
     private HashSet<String> userMobile;
-    private static int customGroupCount;
-    private static int messageId;
+    private static int customGroupCount=0;
+    private static int messageId=0;
 
     public WhatsappRepository(){
         this.groupMessageMap = new HashMap<Group, List<Message>>();
@@ -78,13 +78,11 @@ public class WhatsappRepository {
     }
 
     public boolean isUserInTheGroup(User user, Group group) {
-        List<User> users=groupUserMap.get(user);
-        for(User user1:users)
-        {
-            if((user1.getMobile()).equals(user.getMobile()))
-                return true;
-        }
+        List<User> users=groupUserMap.get(group);
+        if(users!=null&&users.contains(user))
+            return true;
         return false;
+
     }
 
     public int sendMessage(Message message, User sender, Group group) {
